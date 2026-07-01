@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Script exécuté par Render à chaque déploiement
 set -e
 
 echo "==> Installation des dépendances"
