@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hôtel Les Relais du Soleil — Malanville</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+  :root{
+    --sand: #EFDFC0;
+    --sand-deep: #E3CDA0;
+    --terracotta: #C2562F;
+    --terracotta-dark: #9C4222;
+    --indigo: #1F3A44;
+    --indigo-deep: #142A32;
+    --gold: #E3A23B;
+    --charcoal: #2A2218;
+    --cream: #FBF6EC;
+    --line: rgba(42,34,24,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{ background: var(--cream); color: var(--charcoal); font-family:'Work Sans',sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3,.display{ font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; }
+  a{color:inherit;}
+  .hero{ position:relative; background:linear-gradient(180deg, var(--indigo) 0%, var(--indigo-deep) 55%, var(--terracotta-dark) 100%); color:var(--sand); overflow:hidden; padding:0 0 120px 0; }
+  .nav{ display:flex; justify-content:space-between; align-items:center; max-width:1180px; margin:0 auto; padding:28px 24px 0; position:relative; z-index:5; }
+  .nav .brand{ font-family:'Fraunces',serif; font-size:1.15rem; font-weight:700; letter-spacing:0.01em; display:flex; align-items:center; gap:10px; }
+  .brand-mark{ width:26px; height:26px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 1px rgba(255,255,255,0.25); flex-shrink:0; }
+  .nav-links{ display:flex; gap:28px; font-size:0.92rem; opacity:0.85; }
+  .nav-links a{ text-decoration:none; transition:opacity .2s; }
+  .nav-links a:hover{ opacity:1; }
+  .nav-cta{ background:var(--terracotta); color:var(--cream); padding:9px 18px; border-radius:999px; font-size:0.88rem; text-decoration:none; border:1px solid rgba(255,255,255,0.15); transition:background .2s; }
+  .nav-cta:hover{ background:var(--terracotta-dark); }
+  .sun-stage{ position:relative; height:360px; max-width:1180px; margin:0 auto; }
+  .sun-arc-path{ position:absolute; left:50%; top:240px; width:900px; height:450px; transform:translateX(-50%); border:1px dashed rgba(255,255,255,0.18); border-radius:50%; border-bottom:none; clip-path:inset(0 0 50% 0); }
+  .sun{ position:absolute; width:64px; height:64px; border-radius:50%; background:radial-gradient(circle at 35% 30%, #FFE3A8, var(--gold) 60%, var(--terracotta) 100%); box-shadow:0 0 60px 10px rgba(227,162,59,0.55); left:calc(50% - 32px); top:60px; animation:arc 16s ease-in-out infinite; }
+  @keyframes arc{ 0%{left:50px;top:230px;} 50%{left:calc(50% - 32px);top:30px;} 100%{left:calc(100% - 114px);top:230px;} }
+  .river{ position:absolute; left:0; right:0; bottom:0; height:140px; background:linear-gradient(180deg, transparent, rgba(31,58,68,0.4)); }
+  .river svg{ width:100%; height:100%; display:block; }
+  .hero-copy{ position:relative; z-index:4; text-align:center; max-width:720px; margin:-120px auto 0; padding:0 24px; }
+  .eyebrow{ text-transform:uppercase; font-size:0.74rem; letter-spacing:0.18em; color:var(--gold); margin-bottom:16px; font-weight:600; }
+  .hero-copy h1{ font-size:clamp(2.2rem, 5vw, 3.4rem); line-height:1.08; margin-bottom:18px; }
+  .hero-copy p{ font-size:1.08rem; color:rgba(251,246,236,0.82); max-width:540px; margin:0 auto 32px; }
+  .hero-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary{ background:var(--terracotta); color:var(--cream); padding:14px 26px; border-radius:999px; text-decoration:none; font-weight:600; font-size:0.95rem; border:none; cursor:pointer; transition:transform .15s, background .2s; }
+  .btn-primary:hover{ background:var(--terracotta-dark); transform:translateY(-1px); }
+  .btn-primary:disabled{ opacity:0.6; cursor:not-allowed; transform:none; }
+  .btn-ghost{ background:transparent; color:var(--sand); padding:14px 24px; border-radius:999px; border:1px solid rgba(255,255,255,0.3); text-decoration:none; font-weight:500; font-size:0.95rem; }
+  .booking-wrap{ max-width:980px; margin:-70px auto 0; padding:0 24px; position:relative; z-index:6; }
+  .booking-card{ background:var(--sand); border-radius:18px; box-shadow:0 24px 60px -20px rgba(20,42,50,0.45); padding:26px; display:grid; grid-template-columns:repeat(4,1fr) auto; gap:14px; align-items:end; }
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{ font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--terracotta-dark); font-weight:600; }
+  .field input, .field select{ border:1px solid var(--line); background:var(--cream); border-radius:9px; padding:10px 12px; font-family:'Work Sans',sans-serif; font-size:0.92rem; color:var(--charcoal); }
+  .field input:focus, .field select:focus{ outline:2px solid var(--terracotta); outline-offset:1px; }
+  .booking-card .btn-primary{ white-space:nowrap; height:fit-content; }
+  @media (max-width:880px){ .booking-card{ grid-template-columns:1fr 1fr; } .booking-card .btn-primary{ grid-column:1 / -1; width:100%; } }
+  .avail-result{ margin-top:14px; font-size:0.88rem; padding:12px 14px; border-radius:10px; display:none; }
+  .avail-result.show{ display:block; }
+  .avail-result.ok{ background:rgba(46,107,79,0.12); color:#2E6B4F; }
+  .avail-result.no{ background:rgba(194,86,47,0.12); color:var(--terracotta-dark); }
+  section{ max-width:1180px; margin:0 auto; padding:100px 24px; }
+  .section-head{ max-width:560px; margin-bottom:48px; }
+  .section-head .eyebrow{ color:var(--terracotta); }
+  .section-head h2{ font-size:clamp(1.7rem, 3vw, 2.3rem); color:var(--charcoal); }
+  .section-head p{ color:rgba(42,34,24,0.65); margin-top:12px; }
+  .rooms-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media (max-width:880px){ .rooms-grid{ grid-template-columns:1fr; } }
+  .room-card{ border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#fff; transition:transform .2s, box-shadow .2s; }
+  .room-card:hover{ transform:translateY(-3px); box-shadow:0 16px 32px -16px rgba(42,34,24,0.25); }
+  .room-thumb{ height:150px; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:0.85rem; letter-spacing:0.04em; color:rgba(255,255,255,0.85); }
+  .room-thumb.t1{ background:linear-gradient(135deg, var(--gold), var(--terracotta)); }
+  .room-thumb.t2{ background:linear-gradient(135deg, var(--terracotta), var(--indigo)); }
+  .room-thumb.t3{ background:linear-gradient(135deg, var(--indigo), #0E2128); }
+  .room-body{ padding:20px; }
+  .room-body h3{ font-size:1.05rem; margin-bottom:6px; }
+  .room-body .price{ color:var(--terracotta-dark); font-weight:700; font-family:'Fraunces',serif; margin-bottom:10px; display:block; }
+  .room-body p{ font-size:0.88rem; color:rgba(42,34,24,0.65); margin-bottom:16px; }
+  .room-body button{ width:100%; background:var(--charcoal); color:var(--cream); border:none; padding:11px; border-radius:9px; font-size:0.88rem; cursor:pointer; font-weight:500; transition:background .2s; }
+  .room-body button:hover{ background:var(--indigo-deep); }
+  .why{ background:var(--indigo); color:var(--sand); }
+  .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:8px; }
+  @media (max-width:880px){ .why-grid{ grid-template-columns:1fr; } }
+  .why-item .num{ font-family:'Fraunces',serif; color:var(--gold); font-size:0.85rem; margin-bottom:10px; display:block; }
+  .why-item h3{ font-size:1.1rem; margin-bottom:8px; }
+  .why-item p{ font-size:0.9rem; color:rgba(251,246,236,0.7); }
+  footer{ background:var(--indigo-deep); color:rgba(251,246,236,0.55); text-align:center; padding:40px 24px; font-size:0.84rem; }
+  footer strong{ color:var(--sand); }
+  .chat-toggle{ position:fixed; bottom:24px; right:24px; width:58px; height:58px; border-radius:50%; background:var(--terracotta); border:none; box-shadow:0 10px 26px -8px rgba(194,86,47,0.6); cursor:pointer; z-index:50; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.4rem; transition:transform .2s; }
+  .chat-toggle:hover{ transform:scale(1.06); }
+  .chat-panel{ position:fixed; bottom:96px; right:24px; width:320px; max-height:440px; background:var(--cream); border-radius:16px; box-shadow:0 24px 60px -16px rgba(20,42,50,0.5); display:none; flex-direction:column; overflow:hidden; z-index:50; border:1px solid var(--line); }
+  .chat-panel.open{ display:flex; }
+  .chat-head{ background:var(--indigo); color:var(--sand); padding:14px 16px; font-size:0.88rem; font-weight:600; display:flex; align-items:center; gap:8px; }
+  .chat-head .dot{ width:8px; height:8px; border-radius:50%; background:#5FCB8C; }
+  .chat-body{ flex:1; padding:14px 16px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; font-size:0.86rem; }
+  .msg{ max-width:85%; padding:9px 12px; border-radius:12px; line-height:1.4; }
+  .msg.bot{ background:#fff; border:1px solid var(--line); align-self:flex-start; border-bottom-left-radius:3px; }
+  .msg.user{ background:var(--terracotta); color:#fff; align-self:flex-end; border-bottom-right-radius:3px; }
+  .chat-suggestions{ padding:10px 14px 14px; display:flex; flex-wrap:wrap; gap:6px; border-top:1px solid var(--line); }
+  .chip{ background:#fff; border:1px solid var(--line); border-radius:999px; padding:6px 11px; font-size:0.76rem; cursor:pointer; transition:background .15s; }
+  .chip:hover{ background:var(--sand); }
+  ::selection{ background:var(--gold); color:var(--charcoal); }
+
+  /* Modal de réservation */
+  .modal-overlay{ position:fixed; inset:0; background:rgba(20,42,50,0.55); display:none; align-items:center; justify-content:center; z-index:100; padding:20px; }
+  .modal-overlay.open{ display:flex; }
+  .modal{ background:#fff; border-radius:16px; padding:28px; max-width:420px; width:100%; }
+  .modal h3{ margin-bottom:16px; }
+  .modal .field{ margin-bottom:14px; }
+  .modal-actions{ display:flex; gap:10px; margin-top:18px; }
+  .btn-secondary{ background:transparent; border:1px solid var(--line); color:var(--charcoal); padding:11px 18px; border-radius:9px; cursor:pointer; font-size:0.9rem; flex:1; }
+  .modal-actions .btn-primary{ flex:1; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <nav class="nav">
+    <div class="brand"><span class="brand-mark"></span>Les Relais du Soleil</div>
+    <div class="nav-links">
+      <a href="#chambres">Chambres</a>
+      <a href="#pourquoi">Pourquoi nous</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#reserver">Réserver</a>
+  </nav>
+  <div class="sun-stage">
+    <div class="sun-arc-path"></div>
+    <div class="sun"></div>
+  </div>
+  <div class="hero-copy">
+    <div class="eyebrow">Malanville · Bénin</div>
+    <h1>Une halte au bord du fleuve, entre deux routes du Sahel.</h1>
+    <p>Chambres climatisées, restaurant et accueil chaleureux à deux pas de la frontière du Niger. Réservez directement, sans intermédiaire.</p>
+    <div class="hero-actions">
+      <a href="#reserver" class="btn-primary">Vérifier les disponibilités</a>
+      <a href="#chambres" class="btn-ghost">Voir les chambres</a>
+    </div>
+  </div>
+  <div class="river"></div>
+</div>
+
+<div class="booking-wrap" id="reserver">
+  <form class="booking-card" id="bookingForm">
+    <div class="field">
+      <label for="checkin">Arrivée</label>
+      <input type="date" id="checkin" required>
+    </div>
+    <div class="field">
+      <label for="checkout">Départ</label>
+      <input type="date" id="checkout" required>
+    </div>
+    <div class="field">
+      <label for="roomType">Chambre</label>
+      <select id="roomType"></select>
+    </div>
+    <div class="field">
+      <label for="guests">Voyageurs</label>
+      <select id="guests">
+        <option>1</option><option selected>2</option><option>3</option><option>4</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-primary" id="checkBtn">Vérifier</button>
+  </form>
+  <div class="avail-result" id="availResult"></div>
+</div>
+
+<section id="chambres">
+  <div class="section-head">
+    <div class="eyebrow">Hébergement</div>
+    <h2>Trois façons de poser ses valises</h2>
+    <p>Chaque chambre est climatisée et pensée pour le confort des voyageurs en route vers le parc W ou la frontière.</p>
+  </div>
+  <div class="rooms-grid" id="roomsGrid">
+    <p style="color:rgba(42,34,24,0.5);">Chargement des chambres…</p>
+  </div>
+</section>
+
+<section class="why" id="pourquoi">
+  <div class="section-head">
+    <div class="eyebrow">Pourquoi ce site</div>
+    <h2>Ce que change une réservation directe</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-item"><span class="num">Sans commission</span><h3>Vous gardez 100% du tarif</h3><p>Aucune plateforme tierce ne prélève de pourcentage sur vos réservations.</p></div>
+    <div class="why-item"><span class="num">Disponible 24h/24</span><h3>Un assistant qui répond à votre place</h3><p>Même la nuit ou pendant un appel, le client a une réponse immédiate sur les tarifs et disponibilités.</p></div>
+    <div class="why-item"><span class="num">Image maîtrisée</span><h3>Une vitrine qui vous ressemble</h3><p>Contrairement à une fiche Booking ou Facebook, ce site raconte votre établissement comme vous le souhaitez.</p></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <p><strong>Hôtel Les Relais du Soleil</strong> — Malanville, Département de l'Alibori, Bénin</p>
+  <p style="margin-top:6px;">Site réalisé par Aboul-aziz — développeur web &amp; mobile</p>
+</footer>
+
+<button class="chat-toggle" id="chatToggle" aria-label="Ouvrir l'assistant">💬</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head"><span class="dot"></span> Assistant Relais du Soleil</div>
+  <div class="chat-body" id="chatBody">
+    <div class="msg bot">Bonjour 👋 Je peux répondre à vos questions sur les chambres, les tarifs ou la disponibilité. Que voulez-vous savoir ?</div>
+  </div>
+  <div class="chat-suggestions">
+    <div class="chip" onclick="askChat('tarifs')">Quels sont les tarifs ?</div>
+    <div class="chip" onclick="askChat('piscine')">Y a-t-il une piscine ?</div>
+    <div class="chip" onclick="askChat('itineraire')">Comment venir ?</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="bookModalOverlay">
+  <div class="modal">
+    <h3>Finaliser la réservation</h3>
+    <form id="confirmBookingForm">
+      <div class="field"><label>Nom complet</label><input type="text" id="guestName" required></div>
+      <div class="field"><label>Téléphone</label><input type="tel" id="guestPhone" placeholder="+229 ..." required></div>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="cancelBookBtn">Annuler</button>
+        <button type="submit" class="btn-primary">Confirmer</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Même domaine que le backend une fois déployé : pas besoin d'URL absolue.
+  const API_BASE = '/api';
+
+  let rooms = [];
+  let pendingBooking = null; // { room, check_in, check_out, guests_count }
+
+  const roomSelect = document.getElementById('roomType');
+  const roomsGrid = document.getElementById('roomsGrid');
+  const thumbClasses = ['t1', 't2', 't3'];
+
+  async function loadRooms(){
+    try {
+      const res = await fetch(`${API_BASE}/rooms/`);
+      rooms = await res.json();
+
+      roomSelect.innerHTML = rooms.map(r => `<option value="${r.id}">${r.name}</option>`).join('');
+
+      roomsGrid.innerHTML = rooms.map((r, i) => `
+        <div class="room-card">
+          <div class="room-thumb ${thumbClasses[i % 3]}">${r.name}</div>
+          <div class="room-body">
+            <h3>${r.name}</h3>
+            <span class="price">${Number(r.price_per_night).toLocaleString('fr-FR')} FCFA / nuit</span>
+            <p>${r.description}</p>
+            <button onclick="quickBook(${r.id})">Réserver cette chambre</button>
+          </div>
+        </div>
+      `).join('');
+    } catch (err) {
+      roomsGrid.innerHTML = `<p style="color:var(--terracotta-dark);">Impossible de charger les chambres. Vérifiez que le serveur Django tourne sur ${API_BASE}.</p>`;
+    }
+  }
+  loadRooms();
+
+  // ----- Vérification de disponibilité -----
+  const form = document.getElementById('bookingForm');
+  const result = document.getElementById('availResult');
+  const checkBtn = document.getElementById('checkBtn');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const checkin = document.getElementById('checkin').value;
+    const checkout = document.getElementById('checkout').value;
+    const roomId = roomSelect.value;
+    const guests = document.getElementById('guests').value;
+
+    if(!checkin || !checkout){
+      showResult('no', "Merci de renseigner une date d'arrivée et de départ.");
+      return;
+    }
+    if(new Date(checkout) <= new Date(checkin)){
+      showResult('no', "La date de départ doit être après la date d'arrivée.");
+      return;
+    }
+
+    checkBtn.disabled = true;
+    checkBtn.textContent = 'Vérification…';
+
+    try {
+      const res = await fetch(`${API_BASE}/check-availability/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ room: roomId, check_in: checkin, check_out: checkout })
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        showResult('no', data.detail || "Une erreur est survenue, réessayez.");
+      } else if (data.available) {
+        showResult('ok', `Disponible ! ${data.available_units} chambre(s) "${data.room_name}" libre(s) du ${formatDate(checkin)} au ${formatDate(checkout)}.`);
+        pendingBooking = { room: roomId, check_in: checkin, check_out: checkout, guests_count: guests };
+        offerToConfirm();
+      } else {
+        showResult('no', `Désolé, plus de chambre "${data.room_name}" disponible sur ces dates.`);
+        pendingBooking = null;
+      }
+    } catch (err) {
+      showResult('no', `Connexion au serveur impossible. Vérifiez que le backend Django tourne sur ${API_BASE}.`);
+    } finally {
+      checkBtn.disabled = false;
+      checkBtn.textContent = 'Vérifier';
+    }
+  });
+
+  function showResult(type, text){
+    result.className = `avail-result ${type} show`;
+    result.textContent = text;
+  }
+
+  function offerToConfirm(){
+    const btn = document.createElement('button');
+    btn.textContent = 'Confirmer cette réservation →';
+    btn.className = 'btn-primary';
+    btn.style.marginTop = '10px';
+    btn.onclick = () => openBookModal();
+    result.appendChild(document.createElement('br'));
+    result.appendChild(btn);
+  }
+
+  function formatDate(d){
+    return new Date(d).toLocaleDateString('fr-FR', { day:'numeric', month:'long' });
+  }
+
+  function quickBook(roomId){
+    roomSelect.value = roomId;
+    document.getElementById('reserver').scrollIntoView({ behavior:'smooth' });
+  }
+
+  // ----- Modal de confirmation -----
+  const overlay = document.getElementById('bookModalOverlay');
+  const confirmForm = document.getElementById('confirmBookingForm');
+
+  function openBookModal(){
+    if (!pendingBooking) return;
+    overlay.classList.add('open');
+  }
+  document.getElementById('cancelBookBtn').onclick = () => overlay.classList.remove('open');
+
+  confirmForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if (!pendingBooking) return;
+
+    const payload = {
+      ...pendingBooking,
+      guest_name: document.getElementById('guestName').value,
+      guest_phone: document.getElementById('guestPhone').value,
+    };
+
+    try {
+      const res = await fetch(`${API_BASE}/bookings/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        overlay.classList.remove('open');
+        showResult('ok', `Réservation enregistrée pour ${payload.guest_name} ! Vous recevrez une confirmation par téléphone.`);
+        pendingBooking = null;
+        confirmForm.reset();
+      } else {
+        alert(data.detail || "Erreur lors de la réservation, réessayez.");
+      }
+    } catch (err) {
+      alert("Connexion au serveur impossible.");
+    }
+  });
+
+  // ----- Chat assistant (réponses statiques pour l'instant — branchable sur Groq comme pour ICI) -----
+  const chatToggle = document.getElementById('chatToggle');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatBody = document.getElementById('chatBody');
+  chatToggle.addEventListener('click', () => chatPanel.classList.toggle('open'));
+
+  const answers = {
+    tarifs: "Nos tarifs vont de 15 000 FCFA (Standard) à 35 000 FCFA (Suite Fleuve) par nuit, climatisation incluse selon la chambre.",
+    piscine: "Pas de piscine sur place actuellement, mais nous sommes à proximité du fleuve et pouvons organiser des excursions.",
+    itineraire: "L'hôtel se trouve à Malanville, département de l'Alibori, à quelques minutes du poste frontalier avec le Niger."
+  };
+  function askChat(key){
+    const questions = { tarifs:"Quels sont les tarifs ?", piscine:"Y a-t-il une piscine ?", itineraire:"Comment venir ?" };
+    addMsg(questions[key], 'user');
+    setTimeout(() => addMsg(answers[key], 'bot'), 500);
+  }
+  function addMsg(text, who){
+    const div = document.createElement('div');
+    div.className = `msg ${who}`;
+    div.textContent = text;
+    chatBody.appendChild(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+</script>
+
+</body>
+</html>

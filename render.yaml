@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: relais-du-soleil
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn relais_backend.wsgi:application --bind 0.0.0.0:$PORT --workers 2"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true          # Render génère une clé sécurisée automatiquement
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        sync: false                  # Tu saisiras l'URL Render après le premier déploiement
+      - key: CSRF_TRUSTED_ORIGINS
+        sync: false                  # Idem
